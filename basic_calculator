@@ -1,0 +1,21 @@
+i=0
+while i==0:
+    print('CALCULADORA \n')
+    print('1. + ')
+    print('2. - ')
+    print('3. X ')
+    print('4. / \n')
+    op=int(input('Digite o nº referente a operação que deseja realizar: \n'))
+    if (op==1)or(op==2)or(op==3)or(op==4):
+        i=1
+x=float(input('\n Digite o primeiro número: '))
+y=float(input('Digite o segundo número: '))
+
+if op==1:
+    print('\n {} + {} = {}'.format(x,y,x+y))
+elif op==2:
+    print('\n {} - {} = {}'.format(x,y,x-y))
+elif op==3:
+    print('\n {} x {} = {}'.format(x,y,x*y))
+else:
+    print('\n {} / {} = {}'.format(x,y,x/y))
