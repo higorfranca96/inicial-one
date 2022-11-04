@@ -1,0 +1,45 @@
+x=int(input('Digite o valor inicial: '))
+y=int(input('Digite o valor final: '))
+
+#LETRA A) Quantidade de números inteiros e positivos
+intpos=0
+i=x
+somapos=0
+
+while i<=y:
+    if i>0:
+        intpos=intpos+1
+        somapos=somapos+i
+    i=i+1
+print('A) Qtd inteiros e positivos = {}'.format(intpos))
+mediapos=somapos/intpos
+
+#LETRA B) Quantidade de números pares
+pares=0
+i=x
+somapar=0
+
+while i<=y:
+    if (i%2)==0:
+        pares=pares+1
+        somapar=somapar+i
+    i=i+1
+print('B) Qtd pares = {}'.format(pares))
+mediapar=somapar/pares
+
+#LETRA C) Quantidade de números ímpares
+imp=0
+i=x
+somaimp=0
+
+while i<=y:
+    if (i%2)!=0:
+        imp=imp+1
+        somaimp=somaimp+i
+    i=i+1
+print('C) Qtd ímpares = {}'.format(imp))
+mediaimp=somaimp/imp
+
+#LETRA D) Médias de cada alternativa
+
+print('D) Média inteiros e positivos = {} \n Média pares = {} \n Média ímpares = {}'.format(mediapos,mediapar,mediaimp))
