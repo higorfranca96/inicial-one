@@ -1,0 +1,7 @@
+print('TABUADA \n')
+n=int(input('Digite o número que deseja obter a tabuada: '))
+print('\n')
+i=1
+while i<=10:
+    print('{}x{} = {}'.format(i,n,i*n))
+    i+=1
