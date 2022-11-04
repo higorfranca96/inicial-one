@@ -1,0 +1,7 @@
+i=1
+x=3
+while i<=10:
+    if(x%3)==0:
+        print(x)
+        i=i+1
+    x=x+1
