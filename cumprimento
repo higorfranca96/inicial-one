@@ -1,0 +1,11 @@
+#PROGRAMA PERGUNTA A IDADE E O SEXO E RETORNA COM UM CUMPRIMENTO.
+
+while True:
+    idade=int(input('Digite sua idade: '))
+    if idade<0:
+        break
+    sexo=input('Digite seu sexo (M ou F): ')
+    if sexo =='M':
+        print('Boa noite, Senhor. Sua idade é {}.'.format(idade))
+    else:
+        print('Boa noite, Senhora.Sua idade é {}.'.format(idade))
