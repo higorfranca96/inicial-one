@@ -1,0 +1,26 @@
+inicio=int(input('Digite a hora inicial: '))
+fim=int(input('Digite a hora final: '))
+
+while inicio>fim or inicio<0 or fim>23:
+    inicio = int(input('Digite a hora inicial: '))
+    fim = int(input('Digite a hora final: '))
+
+for h in range(inicio,fim,1):
+    for m in range(0,60,1):
+        for s in range(0,60,1):
+            if h<10 and m>=10 and s>=10:
+                print('0{}:{}:{}'.format(h,m,s))
+            elif h<10 and m<10 and s>=10:
+                print('0{}:0{}:{}'.format(h, m, s))
+            elif h<10 and m<10 and s<10:
+                print('0{}:0{}:0{}'.format(h, m, s))
+            elif h<10 and m>=10 and s<10:
+                print('0{}:{}:0{}'.format(h, m, s))
+            elif h>=10 and m<10 and s>=10:
+                print('{}:0{}:{}'.format(h, m, s))
+            elif h>=10 and m<10 and s<10:
+                print('{}:0{}:0{}'.format(h, m, s))
+            elif h>=10 and m>=10 and s<10:
+                print('{}:{}:0{}'.format(h, m, s))
+            else:
+                print('{}:{}:{}'.format(h, m, s))
