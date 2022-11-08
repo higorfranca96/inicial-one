@@ -1,0 +1,47 @@
+#CAIXA ELETRÔNICO
+
+while True:
+
+
+    print('\nCAIXA ELETRÔNICO\n')
+    
+    valor=int(input('Digite o valor que deseja sacar: '))
+    
+    print('\n')
+    
+    if valor>=100:
+        cont100=valor//100
+        valor=valor-cont100*100
+        print('Células de R$100: {}'.format(cont100))
+    if valor>=50:
+        cont50=valor//50
+        valor=valor-cont50*50
+        print('Células de R$50: {}'.format(cont50))
+    
+    if valor>=20:
+        cont20=valor//20
+        valor=valor-cont20*20
+        print('Células de R$20: {}'.format(cont20))
+        
+    if valor>=10:
+        cont10=valor//10
+        valor=valor-cont10*10 
+        print('Células de R$10: {}'.format(cont10))
+        
+    if valor >=5:
+        cont5=valor//5
+        valor=valor-cont5*5
+        print('Células de R$5: {}'.format(cont5))
+    
+    cont1=valor//1
+    if cont1>0:
+        print('Células de R$1: {}'.format(cont1))
+        
+    print('\n')
+    
+    opcao=input('Desejar sair? ')
+    if opcao=='Sim' or valor=='sim' or valor=='SIM':
+        print('\nObrigado. Até a próxima!')
+        break
+    
+    print('\n')
