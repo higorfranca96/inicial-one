@@ -40,7 +40,7 @@ while True:
     print('\n')
     
     opcao=input('Desejar sair? ')
-    if opcao=='Sim' or valor=='sim' or valor=='SIM':
+    if opcao=='Sim' or opcao=='sim' or opcao=='SIM':
         print('\nObrigado. Até a próxima!')
         break
     
