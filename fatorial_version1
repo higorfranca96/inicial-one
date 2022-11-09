@@ -1,0 +1,29 @@
+#CALCULA O FATORIAL DE UM NUMERO E ANTES VERIFICA SE ELE É POSITIVO.
+
+def fat(x):
+
+    if x>=1:
+        mult=x
+        for x in range(x,1,-1):
+            mult=mult*(x-1)
+        return mult
+        
+def positivo(x):
+    while x<=0:
+        x=int(input('Digite um número para calcular o seu fatorial: '))
+    return x
+
+while True:
+
+    print('-'*12)
+    print('|','FATORIAL','|')
+    print('-'*12)
+
+    n=int(input('Digite um número para calcular o seu fatorial: '))
+    n=positivo(n)
+    print('\nFatorial de {} = {}'.format(n,fat(n)))
+    
+    sair=input('Deseja sair? ')
+    if sair =='SIM'or sair=='Sim' or sair=='sim':
+        print('\nEncerrando o programa...')
+        break
