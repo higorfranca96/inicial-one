@@ -1,0 +1,26 @@
+#CALCULO DA SOMA DE N VALORES ENTRE DOIS NUMEROS INTEIROS E POSITIVOS, INCLUINDO ELES.
+
+def soma(x,y):
+    while x==y:
+        x=int(input('Digite o primeiro número: '))
+        y=int(input('Digite o segundo número: '))
+    
+    if x>y:
+        maior=x
+        menor=y
+    else:
+        maior=y
+        menor=x
+    
+    somatorio=0
+    i=menor
+    while i<=maior:
+        somatorio=somatorio+i
+        i+=1
+    
+    return somatorio
+    
+n1=int(input('Digite o primeiro número: '))
+n2=int(input('Digite o segundo número: '))
+n3=soma(n1,n2)
+print('Somatorio dos valores entres os numeros = {}'.format(n3))
