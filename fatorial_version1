@@ -1,6 +1,9 @@
 #CALCULA O FATORIAL DE UM NUMERO E ANTES VERIFICA SE ELE É POSITIVO.
 
 def fat(x):
+    """
+    Retorna o fatorial do parâmetro inserido
+    """
 
     if x>=1:
         mult=x
@@ -9,6 +12,10 @@ def fat(x):
         return mult
         
 def positivo(x):
+    """
+    Verifica se um numero é positivo e só finaliza quando é digitado um numero positivo
+    """
+    
     while x<=0:
         x=int(input('Digite um número para calcular o seu fatorial: '))
     return x
