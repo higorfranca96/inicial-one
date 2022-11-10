@@ -1,0 +1,30 @@
+#ranking das linguagens de programação mais amadas 
+
+top10=('Rust','TypeScript','Python','Kotlin','Go','Julia','Dart','C#','Swift','JavaScript')
+
+#ranking numerado com 1 palavra por linha
+
+print('TOP 10 LINGUAGENS MAIS AMADAS\n')
+cont=1
+for i in top10:
+    print('{}. {}'.format(cont,i))
+    cont+=1
+    
+#ranking numerado top3
+
+print('\nTOP 3 LINGUAGENS MAIS AMADAS\n')
+for i in range(0,3,1):
+    print('{}. {}'.format(i+1,top10[i]))
+    
+#ranking numerado últimas 5
+
+print('\nCINCO LINGUAGENS MENOS AMADAS\n')
+for i in range(5,10,1):
+    print('{}. {}'.format(i+1,top10[i]))
+    
+#posição da linguagem Python
+
+print('\nPOSIÇÃO DA LINGUAGEM PYTHON\n')
+for i in range(0,10,1):
+    if top10[i]=='Python':
+        print('{}. {}'.format(i+1,top10[i]))
