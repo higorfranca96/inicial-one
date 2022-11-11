@@ -1,0 +1,48 @@
+#PROGRAMA PARA CADASTRAR NOME, ALTURA E PESO E CALCULAR O IMC DAS PESSOAS
+
+lista=[]
+imc = lambda peso,altura: peso/(altura*altura)
+i=1
+while True:
+    nome=input('Digite o nome da pessoa nº{}: '.format(i))
+    altura=float(input('Digite a altura da pessoa nº{}: '.format(i)))
+    peso=float(input('Digite o peso da pessoa nº{}: '.format(i)))
+    valor_imc=imc(peso,altura)
+    lista.append([nome,altura,peso,valor_imc])
+    
+    opcao=input('\nRealizar novo cadastro? ')
+    print('\n')
+    if opcao=='N' or opcao=='n' or opcao=='nao' or opcao=='NAO' or opcao=='Nao' or opcao=='NÃO' or opcao=='Não' or opcao=='não':
+        break
+    i+=1
+
+#IMPRIME A LISTA DE CADASTROS
+soma=0
+print('\nNome, Altura, Peso, IMC\n')
+for item in lista:
+    print(item)
+    soma+=1
+    
+#INFORMA A QUANTIDADE DE CADASTROS
+print('\nNº de cadastros: {}'.format(soma))
+
+#INFORMA QUAL O MAIOR IMC
+maior_imc=0
+menor_imc=1000
+
+for i in range(0,len(lista),1):
+    if lista[i][3]>maior_imc:
+        maior_imc=lista[i][3]
+        maior_pessoa=lista[i][0]
+            
+print('\nMaior IMC é o de {}: %.2f'.format(maior_pessoa) %(maior_imc))
+
+#INFORMA QUAL O MAIOR IMC
+menor_imc=1000
+
+for i in range(0,len(lista),1):
+    if lista[i][3]<menor_imc:
+        menor_imc=lista[i][3]
+        menor_pessoa=lista[i][0]
+            
+print('\nMenor IMC é o de {}: %.2f'.format(menor_pessoa) %(menor_imc))
