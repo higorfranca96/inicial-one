@@ -1,0 +1,21 @@
+#programa para pedir as notas de um aluno, mostrá-las na tela e calcular a média.
+
+notas=[]
+while True:
+    nota=float(input('Digite uma nota: '))
+    if nota>=0:
+        notas.append(nota)
+    if nota<0:
+        break
+soma=0
+cont=0
+try:
+    print('\nNotas:\n')
+    for item in notas:
+        soma=soma+item
+        cont+=1
+        print(item)
+    
+    print('\nMédia = {}'.format(soma/cont))
+except:
+    print('Você não digitou nenhuma nota.')
