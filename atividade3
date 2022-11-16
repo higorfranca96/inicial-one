@@ -1,0 +1,63 @@
+#funções
+
+def metragem_limpeza(): #função para receber o valor da metragem (m2) e retornar o valor a ser pago
+    print('-------------------- MENU 1 DE 3 - METRAGEM LIMPEZA --------------------')
+    while True:
+        try:
+            valor=int(input('Digite a metragem desejada entre 30 e 699 m2: '))
+            if 30<=valor<700:
+                if 30<=valor<300:
+                    custo_metragem=60+0.3*valor
+                    print('É necessário contratar 1 pessoa!')
+                elif 300<=valor<700:
+                    custo_metragem=120+0.5*valor
+                    print('É necessário contratar 2 pessoas')
+                return custo_metragem
+        except ValueError: #para caso o usuário não digitar um valor numérico inteiro
+            print('Você precisa digitar um valor numérico e inteiro! ')
+
+def tipo_limpeza(): #função para perguntar o tipo de limpeza e retornar o multiplicador
+    print('-------------------- MENU 2 DE 3 - TIPO DE LIMPEZA ---------------------')
+    print('B - Básica - Indicada para sujeiras semanais ou quinzenais')
+    print('C - Completa - Indicada para sujeiras antigas e/ou não rotineiras')
+    while True:
+        tipo=input('Digite o tipo de limpeza (B ou C): ')
+        if tipo.upper()=='B':
+            return 1
+        elif tipo.upper()=='C':
+            return 1.3
+        else: #para o caso do usuário não digitar B e nem C
+            print('Você precisa digitar B ou C!')
+
+def adicional_limpeza(): #função para perguntar se deseja mais algum adicional e retornar o valor total dos adicionais
+    print('----------------- MENU 3 DE 3 - ADICIONAL DE LIMPEZA -------------------')
+    print('0 - Não desejo mais nada (encerrar)')
+    print('1 - Passar 10 peças de roupas - R$ 10,00')
+    print('2 - Limpeza de 1 forno/micro-ondas - R$ 12,00')
+    print('3 - Limpeza de 1 geladeira/freezer - R$ 20,00')
+    soma=0 #variável para guardar o total a ser pago pelos adicionais
+    while True:
+        adicional=int(input('Deseja mais algum adicional? '))
+        if adicional==0:
+            return soma
+        elif adicional==1:
+            soma+=10
+        elif adicional==2:
+            soma+=12
+        elif adicional==3:
+            soma+=20
+        else: #para o caso do usuário digitar algo fora das opções indicadas no menu
+            print('Você precisa digitar 0, 1, 2 ou 3!')
+
+#programa principal
+print('Bem-vindo ao Programa de Serviços de Limpeza do Higor Henrique de França')
+
+metragem=metragem_limpeza() #chama a função metragem_limpeza
+tipo=tipo_limpeza() #chama a função tipo_limpeza
+adicional=adicional_limpeza() #chama a função adicional_limpeza()
+total = metragem*tipo+adicional #calcula o total a ser pago
+
+print('\n')
+print('*'*62)
+print('TOTAL: R$ {:.2f} (metragem: {} * tipo: {} + adicional: {})'.format(total,metragem,tipo,adicional))
+print('*'*62)
