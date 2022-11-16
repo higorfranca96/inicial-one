@@ -1,0 +1,21 @@
+
+print('Bem-vindo a Loja do Higor Henrique de França\n')
+valor=float(input('Entre com o valor do produto: ')) #guarda o valor unitário do produto
+qtd=int(input('Entre com a quantidade do produto: ')) #guarda a quantidade do produto
+
+subtotal=valor*qtd  #calcula o valor total sem o frete
+
+if 0<= qtd <11:
+    total=subtotal+30  #calcula o valor total com o frete
+
+elif 11<= qtd <101:
+    total=subtotal+60  #calcula o valor total com o frete
+
+elif 101<= qtd <1001:
+    total=subtotal+120  #calcula o valor total com o frete
+
+else:
+    total=subtotal+240  #calcula o valor total com o frete
+
+print('O valor sem frete foi: R$ {:.2f}'.format(subtotal))
+print('O valor com frete foi: R$ {:.2f}'.format(total))
