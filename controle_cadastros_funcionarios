@@ -1,0 +1,65 @@
+#funções
+
+def cadastrar_funcionario(id): #funcao para cadastrar os funcionarios
+    print('------------------MENU CADASTRAR FUNCIONÁRIO---------------------')
+    print('Código do funcionário: {}'.format(id))
+    nome=input('Digite o nome do funcionário: ')
+    setor=input('Digite o setor do funcionário: ')
+    salario=float(input('Digite o salário do funcionário: '))
+    cadastro={'id':id,'nome':nome,'setor':setor,'salario':salario} #dicionário para guardar as informações do funcionario
+    lista_cadastros.append(cadastro.copy()) #lista para receber todos os cadastros
+
+def consultar_funcionarios(): #funcao para consultar os cadastros já realizados
+    print('------------------MENU CONSULTAR FUNCIONÁRIO---------------------')
+    opcao1 = input('Escolha a opção desejada:\n'
+                   '1. Consultar todos os funcionários\n'
+                   '2. Consultar funcionário por id\n'
+                   '3. Consultar funcionário(s) por setor\n4. Retornar\n>>')
+    if opcao1=='1':
+        for cadastro in lista_cadastros:
+            for key,value in cadastro.items(): #varre todos os dicionarios dentro da lista, imprimindo o par campo, valor
+                print('{}: {}'.format(key,value))
+    if opcao1=='2':
+        id_desejado=int(input('Digite o id do funcionário:\n>>'))
+        for cadastro in lista_cadastros:
+            if cadastro['id'] == id_desejado:
+                for key,value in cadastro.items(): #varre o dicionario correspondente ao id informado, imprimindo o par campo, valor
+                    print('{}: {}'.format(key,value))
+    if opcao1=='3':
+        setor_desejado=input('Digite o setor do funcionário:\n>>')
+        for cadastro in lista_cadastros:
+            if cadastro['setor']==setor_desejado:
+                for key,value in cadastro.items(): #varre o dicionario correspondente ao setor informado, imprimindo o par campo, valor
+                    print('{}: {}'.format(key, value))
+    if opcao1=='4':
+        return #sai da funcao e volta para o programa principal
+
+def remover_funcionario():
+    print('-------------------MENU REMOVER FUNCIONÁRIO----------------------')
+    id_desejado=int(input('Digite o id do funcionário que deseja remover do cadastro:\n>>'))
+    for cadastro in lista_cadastros:
+        if cadastro['id'] == id_desejado: #procura dentro da lista qual dicionário tem o campo id igual ao desejado e remove o dicionário.
+            lista_cadastros.remove(cadastro)
+            print('Cadastro removido.')
+
+#programa principal
+print('Bem-vindo ao Controle de Funcionários do Higor Henrique de França\n')
+id=0 #contador para gerar os ids dos funcionarios a serem cadastrados
+lista_cadastros=[] #lista para armazenar os cadastros dos funcionários
+
+while True: #apresenta o menu principal para o usuário até que ele deseje sair (opção 4)
+    print('-------------------------MENU PRINCIPAL--------------------------')
+    opcao=input('Escolha a opção desejada:\n1. Cadastrar funcionário\n2. Consultar funcionário(s)\n3. Remover funcionário\n4. Sair\n>>')
+
+    if opcao=='1':
+        id+=1
+        cadastrar_funcionario(id)
+    elif opcao=='2':
+        consultar_funcionarios()
+    elif opcao=='3':
+        remover_funcionario()
+    elif opcao=='4':
+        break
+    else:
+        print('Digite uma opção válida!')
+        continue #volta para o inicio do while
