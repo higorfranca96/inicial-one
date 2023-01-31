@@ -1,0 +1,43 @@
+#rotina para preencher uma planilha do excel com os dados digitados pelo usuário (times de futebol e seus respectivos países)
+
+from openpyxl import Workbook
+
+#duas listas vazias para receberem os dados digitados
+times = []
+paises = []
+
+#cria uma nova pasta de trabalho do excel
+wb = Workbook()
+ws1 = wb.active
+ws1.title = 'TIMES DE FUTEBOL'
+
+#loop para pegar os dados do teclado e salva-los nas listas até que o usuario digite 'nao'
+while True:
+    nome = str(input('Digite o nome de um time de futebol: '))
+    if nome.upper() == 'NÃO' or nome.upper() == 'NAO':
+        print('\n')
+        break
+    times.append(nome)
+    pais = str(input('Digite o país desse time: '))
+    paises.append(pais)
+
+#insere os titulos das colunas nas celulas A1 e B1
+ws1['A1'] = 'TIME'
+ws1['B1'] = 'PAÍS'
+
+#preenche a coluna A com os times
+i=2
+for time in times:
+    celula = 'A'+str(i)
+    ws1[celula] = time.upper()
+    i+=1
+
+#preenche a coluna B com os países
+i=2
+for dado in paises:
+    celula = 'B'+str(i)
+    ws1[celula] = dado.upper()
+    i+=1
+
+#salva a planilha
+wb.save('TIMES.xls')
