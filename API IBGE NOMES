@@ -1,0 +1,67 @@
+#rotina para pegar dados da api do censo do ibge sobre os nomes das pessoas no Brasil e gerar uma planilha com
+#os períodos de maior e menor frequência de registro do nome.
+
+#importando json e requests (precisar primeiro fazer o 'pip install requests')
+import json, requests
+
+from openpyxl import Workbook
+
+#funcao para identificar os valores de frequência máxima e mínima
+def max_min(lista):
+    maximo = 0
+    minimo = 100000000
+    for dado in lista:
+        if dado > maximo:
+            maximo = dado
+        if dado < minimo:
+            minimo = dado
+    return {'maximo': maximo, 'minimo': minimo}
+
+#programa principal
+
+busca = "https://servicodados.ibge.gov.br/api/v2/censos/nomes/"
+nome = str(input("Qual nome você deseja pesquisar? "))
+
+response = requests.get(busca+nome)
+json_data = json.loads(response.text)
+
+print("\nPERIODO        FREQUENCIA")
+
+freq = [];
+
+for item in json_data:
+    for dados in item['res']:
+        print("{} : {}".format(dados['periodo'],dados['frequencia']))
+        freq.append(dados['frequencia'])
+
+freq_principais = max_min(freq)
+dec_principais = {}
+
+for item in json_data:
+    for dados in item['res']:
+        if dados['frequencia'] == freq_principais['maximo']:
+            dec_principais['maxima'] = dados['periodo']
+        if dados['frequencia'] == freq_principais['minimo']:
+            dec_principais['minima'] = dados['periodo']
+
+print("\nPeriodo de maior frequencia: {} | Periodo de menor frequencia: {}".format(dec_principais['maxima'],dec_principais['minima']))
+print("Maior frequencia: {} | Menor frequencia: {}".format(freq_principais['maximo'],freq_principais['minimo']))
+
+wb = Workbook()
+ws1 = wb.active
+ws1.title = nome.upper()
+
+ws1['A1'] = 'Nome pesquisado: '+nome.upper()
+ws1['A2'] = 'PERÍODO MAIOR FREQUÊNCIA'
+ws1['B2'] = 'MAIOR FREQUÊNCIA'
+ws1['C2'] = 'PERÍODO MENOR FREQUÊNCIA'
+ws1['D2'] = 'MENOR FREQUÊNCIA'
+ws1['A3'] = dec_principais['maxima']
+ws1['B3'] = freq_principais['maximo']
+ws1['C3'] = dec_principais['minima']
+ws1['D3'] = freq_principais['minimo']
+
+wb.save(nome+'.xlsx')
+
+print('\n')
+print(json_data)
