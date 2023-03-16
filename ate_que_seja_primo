@@ -1,0 +1,26 @@
+#funcao para receber um numero e dizer se ele é primo ou não
+def num_primo(n):
+    
+    j=0
+    
+    if n == 1 or n == 2:
+        print("\nÉ primo")
+        return 1
+    else:
+        for i in range(2,n,1):
+            if n % i == 0:
+                j=1
+                return 0
+                break
+    
+        if j==0 :
+            print("\nÉ primo")
+            return 1
+   
+#pede um numero indefinidamente até que ele seja primo         
+while True:
+    numero = int(input("Digite um número inteiro qualquer:\n"))
+    retorno = num_primo(numero)
+    
+    if retorno == 1:
+        break
