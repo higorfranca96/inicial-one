@@ -1,0 +1,9 @@
+numero = int(input("Digite um número:\n"))
+str_numero = str(numero)
+
+soma = 0
+
+for caractere in str_numero:
+    soma = soma + int(caractere)
+
+print("\nSoma dos algarismos = {}".format(soma))
