@@ -1,0 +1,11 @@
+numeros = []
+
+
+while True:
+    numero = int(input("Digite um número inteiro qualquer:\n"))
+    numeros.append(numero)
+    tam = len(numeros)
+    
+    if (numeros[tam-1] % 2 != 0) and (numeros[tam-2] % 2 == 0):
+        print("\nO último número é impar e o anterior é par")
+        break
